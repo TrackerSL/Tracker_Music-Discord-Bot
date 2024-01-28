@@ -12,6 +12,7 @@ module.exports = {
       const queue = client.player.getQueue(interaction.guild.id);
       if (!queue || !queue.playing) {
         return interaction.reply({ content: '⚠️ No music playing!!', ephemeral: true });
+        await interaction.guild.leave();
       }
 
       queue.stop(interaction.guild.id);

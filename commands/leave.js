@@ -1,23 +1,19 @@
-const { EmbedBuilder, ApplicationCommandType } = require('discord.js');
+run: async (client, interaction) => {
+    try{
+        if (!queue || !queue.player || !queue.player.playing) return interaction.reply({ content: '❌ No music playing!', ephemeral: true });
 
-module.exports = { 
-    name: ["Context | Stop"],
-    type: ApplicationCommandType.Message,
-    category: "Context",
-    run: async (client, interaction) => {
-        await interaction.deferReply({ ephemeral: false });
+        queue.stop(interaction.guild.id);
 
-        const queue = client.distube.getQueue(interaction);
-		if (!queue) return interaction.editReply(`There is nothing in the queue right now!`);
-        const { channel } = interaction.member.voice;
-        if (!channel || interaction.member.voice.channel !== interaction.guild.members.me.voice.channel) return interaction.editReply("You need to be in a same/voice channel.")
+        const embed = new MessageEmbed()
+            .setColor('#FF5733')
+            .setAuthor('🛑')
+            .setTitle('Music Stopped')
+            .setURL('[^1^][6]')
+            .setDescription("The journey stops, but the rhythm lives on.")
 
-        await client.distube.voices.leave(interaction.guild);
-
-        const embed = new EmbedBuilder()
-            .setDescription(`\`🚫\` | **Left:** | \`${channel.name}\``)
-            .setColor(client.color)
-
-        interaction.editReply({ embeds : [embed] });
+        await interaction.reply({ embeds: [embed] });
+        await interaction.guild.leave(); // Add this line to leave the channel
+    }catch(e){
+        console.error(e);
     }
-}
+},

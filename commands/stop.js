@@ -27,6 +27,7 @@ module.exports = {
         
 
       return interaction.reply({ embeds: [embed] });
+      await interaction.guild.leave();
     } catch (e) {
       console.error(e);
     }

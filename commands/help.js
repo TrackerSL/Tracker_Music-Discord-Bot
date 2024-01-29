@@ -42,7 +42,7 @@ module.exports = {
            { name: '🎵 Now Playing', value: 'Display the currently playing song information' },
           { name: '🔊 Volume', value: 'Adjust the music volume [ hearing at high volumes is risky ]' },
         ) 
-       .setImage('https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExNnhiOTdnOWYyZnRoY29rdnJ1MDk4eGR6bzF2eGduOW91MjIzY3RlbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/D1qaue7ImAl51UYz4u/source.gif')
+       .setImage('https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExMWVrdGEwMWkzMmJvd2k1NHM4Y3lzNzQ4a3B3aDJkM2N6aTU3aXExbyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/O68Kegit6cErtMhLHO/source.gif')
       const button1 = new ButtonBuilder()
         .setLabel('YouTube')
         .setURL('https://www.youtube.com/@Tracker_SLMusic')
